@@ -1,0 +1,58 @@
+<html>
+<body>
+<head>
+<script src="jquery.js"></script>
+<script type="text/javascript">
+ $(function () {
+        $("#cpassword").blur(function () {
+            var pass = $("#password").val();
+            var confirmPass = $("#cpassword").val();
+            if (pass != confirmPass) {
+                alert("Confirm Password is incorrect. Please type again.");
+				$('#password').val("");
+				$('#cpassword').val("");
+                return false;
+            }
+			alert("Password match. Go ahead.");
+            return true;
+        });
+    });
+$(document).ready(function(){
+ $("#clear").click(function(){
+ $("#form")[0].reset();  /* To reset all fields of the form */
+ });
+});
+</script>
+</head>
+<h1 style="color: #fff">Registertion Form</h1>
+                <form action='register.php' method="GET" id="form">
+                    <div style="margin: 10px">
+                        <input type="text" id="fname" title="fName" placeholder="First Name" name='fname' />
+						<input type="text" id="mname" title="mName" placeholder="Middle Name" name='mname' >
+						<input type="text" id="lname" title="lName" placeholder="Last Name" name='lname' >
+                     </div>
+                    <div style="margin: 10px">
+                        <input type="date" id="dob" title="dob" placeholder="Date of Birth" name='dob'  />
+                    </div>
+					<div style="margin: 10px">
+                        <input type="email" id="email" title="Email ID" placeholder="Email ID" name='email' />
+                    </div>
+                    <div style="margin: 10px">
+                        <input type="text" id="mobile" title="Mobile number" placeholder="Mobile number" name='mobile'  />
+                    </div>
+                    <div style="margin: 10px">
+                        <input type="password" id="password" title="Create Password" placeholder="Create Password" name='password'/>
+                    </div>
+					<div style="margin: 10px">
+                        <input type="password" id="cpassword" title="Confirm Password" placeholder="Confirm Password" name='cpassword'/>
+                    </div>
+					<div style="margin: 10px">
+                        Gender:<input type="radio" id="gender" name="gender" value="Male"/>Male
+                               <input type="radio" id="gender" name="gender" value="Female"/>Female
+                               <input type="radio" id="gender" name="gender" value="others"/>Others	
+                    </div>
+                    <button type="submit" style="background: #fff;padding:10px">REGISTER</button>
+					<button type="button" id="clear" style="background: #fff;padding:10px">RESET</button>
+                </form>				
+</body>
+</html>
